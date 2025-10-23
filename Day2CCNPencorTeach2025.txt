@@ -1141,7 +1141,7 @@ access-list 51 permit host 52.52.52.52
 access-list 53 permit host 53.53.53.53
 access-list 53 permit host 54.54.54.54
 route-map ISP2for5152 permit 10
- match ip address 51
+ match ip address 51 52
  set weight 152
 route-map ISP2for5152 permit 20
 !
@@ -1254,17 +1254,18 @@ config t
 access-list 41 permit host 41.41.41.41
 access-list 42 permit host 42.42.42.42
 access-list 43 permit host 43.43.43.43
+access-list 43 permit host 45.45.45.45
 route-map LP1 permit 10
  match ip address 41
-  set local-pref 414
+  set local-pref 411
 route-map LP1 permit 20
  match ip address 42
-  set local-pref 424
+  set local-pref 422
 route-map LP1 Deny 30
- match ip address 43
+ match ip address 433
 route-map LP1 Permit 40
 		router bgp 45
-			neighbor 45.4.5.5 route-map LP1 out
+			 no neighbor 45.4.5.5 route-map LP1 out
 			do clear ip bgp *
 end
 
@@ -1485,7 +1486,7 @@ IF ISP2 will shout: DO NOT USE ME AT ALL!!!!!!
 @ISP2
 	config t
 		route-map ASPATH2 permit 10
-			set as-path prepend 2 2 2 2 2 2 2 2 2 
+			set as-path prepend 2 2 2 2 2 2 2 2 2 2 2
 			exit
 		router bgp 2
 			neighbor 207.7.7.1 route-map ASPATH2 OUT
@@ -2140,6 +2141,7 @@ R1#sr os | inc 4.4
 O E2     4.4.0.0 [110/20] via 10.1.1.2, 00:02:29, Ethernet1/0
 O IA     4.4.4.0 [110/31] via 10.1.1.2, 00:00:07, Ethernet1/0
 R1#
+
 
 
 
