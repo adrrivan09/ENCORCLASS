@@ -6,7 +6,7 @@ cmd
 ping 10.k.1.10
 
 c>nmap -sP 10.k.1.0/24    c>nmap -sP 10.k.100.0/24
-10.m.1.10?                   10.m.100.8
+10.32.1.10?                   10.32.100.8
 TASK2: How to begin hacking Layer 3:
 HOw get all the IP address of your victim:
 
@@ -23,7 +23,8 @@ net  use  x: \\10.k.1.10\c$
 SERVICES VS PORTS:
 WEB SERVER RUNS ON PORT 80, IF YOUR CLASSMATE PORT 80 OPEN? IT IS A WEB SERVER!
 LEARN TO RUN A CORPORATE WEBSITE:
-powershell
+powershellexit
+
 New-Website -name "wtf1" -hostheader "www.ngcpM.ph" -physicalPath "d:\webs\datingbiz" -force
 
 CMD
@@ -54,7 +55,7 @@ CONFIG T
 no logging console
 Int Gi 2
 no shut
-ip add 192.168.102.11 255.255.255.0
+ip add 192.168.102.12 255.255.255.0
 !@telnet use secureCRT: telnet 192.168.108.5
 !in SEcureCRT, Paste This:
 config t
@@ -63,10 +64,10 @@ ip name-server 8.8.8.8 1.1.1.1
 ip domain lookup
 int gi 1
 no shut
-ip add 208.8.8.11 255.255.255.0
+ip add 208.8.8.12 255.255.255.0
 int gi 3
 no shut
-ip add 192.168.103.11 255.255.255.0
+ip add 192.168.103.12 255.255.255.0
 line vty 0 14
  transport input all
  exec-timeout 0 0
@@ -271,7 +272,7 @@ intentionally hackable websites
 
 task6: How to Make CISCOLINUX/ CUCM intentionally hackable to Learn
 the Basics for Firewalls.
-before: nmap -v 10.m.100.8,  C> nmap 
+before: nmap -v 10.32.100.8,  C> nmap 
 @Cucm: = fa 0/0/ or CSR1000v = gi3
 config t
 int Gi 3
@@ -300,15 +301,15 @@ voice service voip
 !Make Ping EASY
 ip host bet10.com 192.168.103.10
 ip host bet11.com 192.168.103.11
-ip host pc 10.m.1.10
-ip host cm 10.m.100.8
-ip host cm2 10.m.100.9
-ip host p1 10.m.100.101
-ip host p2 10.m.100.102
-ip host c6 10.m.50.6
-ip host c8 10.m.50.8
-ip host sw 10.m.1.4
-ip host ed 10.m.m.1
+ip host pc 10.32.1.10
+ip host cm 10.32.100.8
+ip host cm2 10.32.100.9
+ip host p1 10.32.100.101
+ip host p2 10.32.100.102
+ip host c6 10.32.50.6
+ip host c8 10.32.50.8
+ip host sw 10.32.1.4
+ip host ed 10.32.32.1
 
 TASK7: Enter the World of BlueTeam: Protect vs Redteam: Attack, 
 BlueTeam: UTM: unified Threat management:
@@ -335,7 +336,7 @@ ip host ebet10.com 192.168.103.10
 ip host ebet11.com 192.168.103.11
 service timestamps log datetime
 service timestamps debug datetime
-logging 10.m.1.10
+logging 10.32.1.10
 logging trap 5
 !!How to Sumbong to SPLUNK LOGS
 NO IP access-list Extended NGFW1
@@ -626,9 +627,9 @@ show ip nat translation
 victim: nmap -v 200.0.0.100+k
 
 ExamLab Training: Make a PortAddressTranslation:
-10.m.1.9 22 --> 200.0.0.100+m 3022 =
-10.m.1.10 80 --> 200.0.0.100+m 8088 = 
-10.m.1.11 53 --> 200.0.0.100+m 4053 =
+10.32.1.9 22 --> 200.0.0.100+m 3022 =
+10.32.1.10 80 --> 200.0.0.100+m 8088 = 
+10.32.1.11 53 --> 200.0.0.100+m 4053 =
 config t
 IP Nat inside source static tcp 10.12.1.9 22 200.0.0.112 3022
 IP Nat inside source static tcp 10.12.1.10 80 200.0.0.112 8088
@@ -935,9 +936,9 @@ show ip nat translation
 victim: nmap -v 200.0.0.100+k
 
 ExamLab Training: Make a PortAddressTranslation:
-10.m.1.9 22 --> 200.0.0.100+m 3022 =
-10.m.1.10 80 --> 200.0.0.100+m 8088 = 
-10.m.1.11 53 --> 200.0.0.100+m 4053 =
+10.32.1.9 22 --> 200.0.0.100+m 3022 =
+10.32.1.10 80 --> 200.0.0.100+m 8088 = 
+10.32.1.11 53 --> 200.0.0.100+m 4053 =
 config t
 IP Nat inside source static tcp 10.12.1.9 22 200.0.0.112 3022
 IP Nat inside source static tcp 10.12.1.10 80 200.0.0.112 8088
@@ -954,7 +955,7 @@ how to share internet with EDGE using NAT:
 @edge:
 config t
 ip route 0.0.0.0  0.0.0.0 200.0.0.1
-access-list 8 permit 10.m.0.0 0.0.255.255
+access-list 8 permit 10.32.0.0 0.0.255.255
 int gi 0/0/0
  ip nat inside
 int gi 0/0/1
@@ -1084,6 +1085,7 @@ https:///restconf/data/Cisco-IOS-XE-native:native/interface/Loopback
 
 HomeWork for the Hardest Day in CCNA: 
 CSr, linuxdocker, pythondocker, Postman: RestApi.
+
 
 
 
